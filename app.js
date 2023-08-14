@@ -5,7 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const { DataSource } = require('typeorm');
 
-const PORT = 3000;
+const PORT = process.env.PORT;
 const app = express();
 
 const appDataSource = new DataSource({
