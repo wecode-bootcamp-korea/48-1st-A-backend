@@ -90,12 +90,13 @@ CREATE TABLE `users` (
   `nickname` varchar(50) DEFAULT NULL,
   `email` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `phone_number` varchar(200) NOT NULL,
+  `phone_number` varchar(200) DEFAULT NULL,
   `birth_day` date DEFAULT NULL,
   `profile_image` varchar(1000) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -123,5 +124,7 @@ INSERT INTO `schema_migrations` (version) VALUES
   ('20230814080338'),
   ('20230814080434'),
   ('20230814080457'),
-  ('20230814080548');
+  ('20230814080548'),
+  ('20230815145632'),
+  ('20230816003001');
 UNLOCK TABLES;
