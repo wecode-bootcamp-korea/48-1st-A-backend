@@ -1,38 +1,31 @@
-require('dotenv').config();
+require("dotenv").config();
+const express = require("express");
+const morgan = require("morgan");
+const cors = require("cors");
 
-const express = require('express');
-const cors = require('cors');
-const morgan = require('morgan');
-const { DataSource } = require('typeorm');
+const { AppDataSource } = require("./src/models/dataSource");
+const { routes } = require("./src/routes");
 
-const PORT = process.env.PORT;
 const app = express();
-
-const appDataSource = new DataSource({
-  type: process.env.DB_CONNECTION,
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-});
 
 app.use(express.json());
 app.use(cors());
-app.use(morgan('dev'));
+app.use(morgan("combined"));
 
-app.get('/ping', (req, res) => {
-  res.json({ message: 'pong' });
+app.use(routes);
+
+app.get("/ping", (req, res) => {
+  res.status(200).json({ message: "pong" });
 });
 
-app.listen(PORT, async () => {
-  await appDataSource
-    .initialize()
-    .then(() => {
-      console.log('Data Source has been initialize!');
-    })
-    .catch((error) => {
-      console.error('Error during Data Source initialize', error);
-    });
-  console.log(`Listening to request on port: ${PORT}`);
-});
+const startServer = async () => {
+  const PORT = process.env.PORT;
+
+  await AppDataSource.initialize();
+
+  app.listen(PORT, () => {
+    console.log(`Listening on Port: ${PORT}`);
+  });
+};
+
+startServer();
