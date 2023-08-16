@@ -90,7 +90,7 @@ CREATE TABLE `users` (
   `nickname` varchar(50) DEFAULT NULL,
   `email` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `phone_number` varchar(200) NOT NULL,
+  `phone_number` varchar(200) DEFAULT NULL,
   `birth_day` date DEFAULT NULL,
   `profile_image` varchar(1000) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -123,5 +123,6 @@ INSERT INTO `schema_migrations` (version) VALUES
   ('20230814080338'),
   ('20230814080434'),
   ('20230814080457'),
-  ('20230814080548');
+  ('20230814080548'),
+  ('20230816085342');
 UNLOCK TABLES;
