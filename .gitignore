@@ -28,6 +28,7 @@
 # Icon must end with two \r
 Icon
 
+db/schema.sql
 
 # Thumbnails
 ._*
@@ -378,5 +379,8 @@ zsdoc/data
 # Zunit tests' output
 /tests/_output/*
 !/tests/_output/.gitkeep
+
+#schema.sql
+db/schema.sql
 
 # End of https://www.toptal.com/developers/gitignore/api/vim,macos,node,linux,visualstudiocode,dotenv,webstorm,zsh
