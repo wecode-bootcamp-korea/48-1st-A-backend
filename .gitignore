@@ -28,6 +28,7 @@
 # Icon must end with two \r
 Icon
 
+db/schema.sql
 
 # Thumbnails
 ._*
