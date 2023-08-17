@@ -4,7 +4,7 @@ const validateEmail = (email) => {
   );
 
   if (!re.test(email)) {
-    const err = new Error("invalid email");
+    const err = new Error('invalid email');
     err.statusCode = 400;
     throw err;
   }
