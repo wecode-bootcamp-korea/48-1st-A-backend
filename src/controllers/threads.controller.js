@@ -1,7 +1,6 @@
 const threads = require('../services/threads');
 const threadComments = require('../services/thread.comment');
 
-//threads
 const createThread = async (req, res) => {
   try {
     const { content } = req.body;
@@ -36,7 +35,6 @@ const deleteThread = async (req, res) => {
   }
 };
 
-//Comments
 const createComment = async (req, res) => {
   try {
     const { content, threadId } = req.body;
