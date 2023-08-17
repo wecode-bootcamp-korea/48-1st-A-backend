@@ -6,6 +6,6 @@ const { threadRouter } = require('./threads.router');
 const routes = express.Router();
 
 routes.use('/user', authRouter);
-routes.use('/user', threadRouter);
+routes.use('/threads', threadRouter);
 
 module.exports = { routes };
