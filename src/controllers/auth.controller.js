@@ -1,17 +1,17 @@
-const authService = require("../services/auth.service");
+const userService = require("../services/auth.service");
 
 const signUp = async (req, res) => {
   try {
-    const { email, password, nickname, profileImage, phoneNumber, birthDay } =
+    const { email, password, nickname, phoneNumber, birthday, profileImage } =
       req.body;
 
-    await authService.signUp(
+    await userService.signUp(
       email,
       password,
       nickname,
-      profileImage,
       phoneNumber,
-      birthDay
+      birthday,
+      profileImage
     );
 
     res.status(201).json({ message: "successCreated" });

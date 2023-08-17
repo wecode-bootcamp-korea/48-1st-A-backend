@@ -8,9 +8,9 @@ const signUp = async (
   email,
   password,
   nickname,
-  profileImage,
   phoneNumber,
-  birthDay
+  birthday,
+  profileImage
 ) => {
   validateEmail(email);
 

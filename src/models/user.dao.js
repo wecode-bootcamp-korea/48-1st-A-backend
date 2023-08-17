@@ -1,22 +1,22 @@
-const { AppDataSource } = require("./dataSource");
+const { AppDataSource } = require("./data-source");
 
 const createUser = async (
   email,
   password,
   nickname,
-  profileImage,
   phoneNumber,
-  birthDay
+  birthday,
+  profileImage
 ) => {
   await AppDataSource.query(
     `
     INSERT INTO users (
       email,
       password,
-       nickname,
-       profile_image,
-       phone_number,
-       birth_day
+      nickname,
+      phone_number,
+      birth_day,
+      profile_image
     ) VALUES (
       ?,
       ?,
@@ -26,16 +26,16 @@ const createUser = async (
       ?
     )
     `,
-    [email, password, nickname, profileImage, phoneNumber, birthDay]
+    [email, password, nickname, phoneNumber, birthday, profileImage]
   );
 };
 
 const getUserByEmail = async (email) => {
   const [user] = await AppDataSource.query(
     `
-    SELECT *
-    FROM users u
-    WHERE u.email = ?
+      SELECT *
+      FROM users u
+      WHERE u.email = ?
     `,
     [email]
   );
