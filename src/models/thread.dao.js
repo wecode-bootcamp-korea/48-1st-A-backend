@@ -10,7 +10,7 @@ const showThreads = async (/*매개변수(키값)*/) => {
         ORDER BY 
         threads.updated_at DESC 
     `
-  );
+  ); 
   return test;
 };
 
