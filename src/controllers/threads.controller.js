@@ -24,6 +24,20 @@ const modifyThread = async (req, res) => {
   }
 };
 
+
+const updateThread = async (req, res) => {
+  try {
+    const result = await threads.showThread(); // 괄호안에 키값
+
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(err.statusCode || 401).json({ message: err.message });
+  }
+};
+
+
+
+
 const deleteThread = async (req, res) => {
   try {
     const { id } = req.body;
@@ -64,4 +78,5 @@ module.exports = {
   deleteThread,
   createComment,
   deleteComment,
+  updateThread
 };

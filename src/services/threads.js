@@ -1,5 +1,9 @@
 const threadDao = require('../models/thread.dao');
 
+const showThread = async () => {
+  return await threadDao.showThreads();
+};
+
 const createThread = async (userId, content) => {
   await threadDao.createThread(userId, content);
 };
@@ -12,4 +16,4 @@ const deleteThread = async (id) => {
   await threadDao.deleteThread(id);
 };
 
-module.exports = { createThread, modifyThread, deleteThread };
+module.exports = { showThread, createThread, modifyThread, deleteThread };

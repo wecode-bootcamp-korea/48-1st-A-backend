@@ -5,6 +5,8 @@ const threadController = require('../controllers/threads.controller');
 
 const threadRouter = express.Router();
 
+threadRouter.get('/show', threadController.updateThread);
+
 threadRouter.post('/contentUp', loginRequired, threadController.createThread);
 threadRouter.post(
   '/contentModify',
